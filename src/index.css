@@ -1,0 +1,98 @@
+@import "tailwindcss";
+@import "./game/filters.css";
+
+/* ==========================================================================
+   PHASE B6.2: 32-BIT ARCADE CONSOLE UI & RETRO BEVEL SUITE
+   - Gunmetal & deep slate dithered panel backgrounds
+   - Metallic chiseled beveled borders with brushed gold/alloy corner rivets
+   - Tactile mechanical embossed buttons with inset active states
+   - Console single-screen zero-scroll viewport discipline
+   ========================================================================== */
+
+/* 1. Metallic Chiseled Beveled Container with Corner Rivets */
+.arcade-panel-beveled {
+  background: linear-gradient(160deg, #1e293b 0%, #0f172a 45%, #050811 100%);
+  border: 2px solid #475569;
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.22),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.7),
+    0 12px 35px -5px rgba(0, 0, 0, 0.85);
+  position: relative;
+}
+
+/* Authentic Brushed Gold Corner Rivets */
+.arcade-rivet-corner-tl,
+.arcade-rivet-corner-tr,
+.arcade-rivet-corner-bl,
+.arcade-rivet-corner-br {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fef08a 0%, #eab308 55%, #713f12 100%);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.9), inset 0 0.5px 0.5px rgba(255, 255, 255, 0.7);
+  pointer-events: none;
+  z-index: 20;
+}
+.arcade-rivet-corner-tl { top: 6px; left: 6px; }
+.arcade-rivet-corner-tr { top: 6px; right: 6px; }
+.arcade-rivet-corner-bl { bottom: 6px; left: 6px; }
+.arcade-rivet-corner-br { bottom: 6px; right: 6px; }
+
+/* 2. Tactile Embossed Mechanical Push-Buttons */
+.arcade-btn {
+  background: linear-gradient(180deg, #334155 0%, #1e293b 55%, #0f172a 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.28);
+  border-left: 1px solid rgba(255, 255, 255, 0.16);
+  border-right: 1px solid rgba(0, 0, 0, 0.55);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.85);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  transition: all 0.08s ease-in-out;
+  cursor: pointer;
+  user-select: none;
+}
+
+.arcade-btn:hover {
+  background: linear-gradient(180deg, #475569 0%, #334155 55%, #1e293b 100%);
+  border-top-color: rgba(255, 255, 255, 0.42);
+}
+
+.arcade-btn:active {
+  transform: translateY(1.5px);
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.8), 0 0 1px rgba(0, 0, 0, 0.5);
+  border-bottom-width: 1px;
+}
+
+/* 3. Gold Championship / Launch Action Button */
+.arcade-btn-gold {
+  background: linear-gradient(180deg, #fbbf24 0%, #f59e0b 45%, #b45309 100%);
+  border-top: 1.5px solid rgba(255, 255, 255, 0.55);
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  border-right: 1.5px solid rgba(69, 26, 3, 0.7);
+  border-bottom: 3px solid rgba(69, 26, 3, 0.95);
+  color: #0f172a;
+  text-shadow: 0 1px 0 rgba(254, 240, 138, 0.6);
+  box-shadow: 0 4px 10px rgba(245, 158, 11, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  transition: all 0.08s ease-in-out;
+  cursor: pointer;
+  user-select: none;
+}
+
+.arcade-btn-gold:hover {
+  background: linear-gradient(180deg, #fde047 0%, #fbbf24 45%, #d97706 100%);
+  box-shadow: 0 5px 14px rgba(245, 158, 11, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.arcade-btn-gold:active {
+  transform: translateY(2px);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.7), 0 1px 2px rgba(0, 0, 0, 0.4);
+  border-bottom-width: 1px;
+}
+
+/* 4. Strict Single-Screen Console Zero-Scroll Discipline */
+.zero-scroll-viewport {
+  max-height: 98vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
